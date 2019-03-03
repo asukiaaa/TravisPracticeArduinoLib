@@ -1,9 +1,5 @@
 #include <TravisPracticeArduinoLib.h>
 
-#ifdef ESP32
-hi esp32 // cause error
-#endif
-
 TravisPracticeArduinoLib practice;
 
 void setup() {
