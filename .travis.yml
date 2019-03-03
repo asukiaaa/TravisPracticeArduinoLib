@@ -8,8 +8,8 @@ before_install:
   - sudo mv arduino-1.8.8 /usr/local/share/arduino
   - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
 install:
-  - ln -s $PWD /usr/local/share/arduino/libraries/TravisPractice
-  - arduino --install-library "TravisPractice"
+  - ln -s $PWD /usr/local/share/arduino/libraries/TravisPracticeArduinoLib
+  - arduino --install-library "TravisPracticeArduinoLib"
 script:
   - arduino --verify --board arduino:avr:uno $PWD/examples/Hello/Hello.ino
 notifications:
