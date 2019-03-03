@@ -28,8 +28,8 @@ before_install:
    - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
 
 script:
-  - arduino --verify --board arduino:avr:uno $PWD/examples/Hello/Hello.ino
-#  - build_main_platforms
+#  - arduino --verify --board arduino:avr:uno $PWD/examples/Hello/Hello.ino
+  - build_main_platforms
 
 notifications:
   email:
