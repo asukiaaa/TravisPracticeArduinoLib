@@ -2,7 +2,7 @@
 #define __TRAVIS_PRACTICE_ARDUINO_LIB_H__
 #include <HardwareSerial.h>
 
-#if defined(ARDUINO_AVR_LEONARDO) | defined(ARDUINO_AVR_MICRO)
+#if defined(__AVR__)
 #include <USBAPI.h>
 #endif
 
