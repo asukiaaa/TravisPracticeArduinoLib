@@ -16,9 +16,9 @@ void setup() {
 
 void loop() {
 #if defined(USE_SERIAL_BOARDS)
-  practice.printHello(SerialUSB);
-#else
   practice.printHello(Serial);
+#else
+  practice.printHello(SerialUSB);
 #endif
   Serial.println(" at " + String(millis()));
   delay(1000);
