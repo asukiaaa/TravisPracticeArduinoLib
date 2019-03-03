@@ -2,23 +2,19 @@
 
 TravisPracticeArduinoLib practice;
 
-#if defined(__AVR__) || defined(ESP8266) || defined(ESP32)
-#define USE_SERIAL_BOARDS
-#endif
-
 void setup() {
-#if defined(USE_SERIAL_BOARDS)
-  Serial.begin(115200);
-#else
+#if defined(TRAVIS_PRACTICE_SAMD_BOARD)
   SerialUSB.begin(115200);
+#else
+  Serial.begin(115200);
 #endif
 }
 
 void loop() {
-#if defined(USE_SERIAL_BOARDS)
-  practice.printHello(Serial);
+#if defined(TRAVIS_PRACTICE_SAMD_BOARD)
+  practice.printHello(&SerialUSB);
 #else
-  practice.printHello(SerialUSB);
+  practice.printHello(&Serial);
 #endif
   Serial.println(" at " + String(millis()));
   delay(1000);
