@@ -6,26 +6,30 @@
 #define TRAVIS_PRACTICE_ADAVRUIT_SAMD
 #endif
 
-#if defined(__arm__) || defined(TRAVIS_PRACTICE_ADAVRUIT_SAMD)
-#define TRAVIS_PRACTICE_SAMD_BOARD
+#if defined(__arm__)
+#define TRAVIS_PRACTICE_ARM_BOARD
 #endif
 
 #if defined(USBCON)
-#if defined(TRAVIS_PRACTICE_SAMD_BOARD)
+#if defined(TRAVIS_PRACTICE_ARM_BOARD)
 #include <USB/USBAPI.h>
 #else
 #include <USBAPI.h>
 #endif
 #endif
 
-#if defined(TRAVIS_PRACTICE_SAMD_BOARD)
+#if defined(TRAVIS_PRACTICE_ARM_BOARD) && !defined(ARDUINO_SAM_DUE)
+#define TRAVIS_PRACTICE_UART_USED
+#endif
+
+#if defined(TRAVIS_PRACTICE_UART_USED)
 #include <Uart.h>
 #endif
 
 class TravisPracticeArduinoLib {
  public:
   TravisPracticeArduinoLib();
-#if defined(TRAVIS_PRACTICE_SAMD_BOARD)
+#if defined(TRAVIS_PRACTICE_UART_USED)
   void printHello(Uart *serial);
 #else
   void printHello(HardwareSerial *serial);
