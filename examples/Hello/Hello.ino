@@ -3,7 +3,7 @@
 TravisPracticeArduinoLib practice;
 
 void setup() {
-#if defined(__arm__) && !defined(__adafruit__)
+#if defined(SerialUSB)
   SerialUSB.begin(115200);
 #else
   Serial.begin(115200);
@@ -11,7 +11,7 @@ void setup() {
 }
 
 void loop() {
-#if defined(__arm__) && !defined(__adafruit__)
+#if defined(SerialUSB)
   practice.printHello(&SerialUSB);
 #else
   practice.printHello(&Serial);

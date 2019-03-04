@@ -1,11 +1,13 @@
 #ifndef __TRAVIS_PRACTICE_ARDUINO_LIB_H__
 #define __TRAVIS_PRACTICE_ARDUINO_LIB_H__
 
-#if defined(UART)
+#if defined(ARDUINO_SAM_DUE)
+#include <UARTClass.h>
+#elif defined(UART)
 #include <Uart.h>
-#else
-#include <HardwareSerial.h>
 #endif
+
+#include <HardwareSerial.h>
 
 #if defined(USBCON)
 #if defined(__arm__)
@@ -18,11 +20,12 @@
 class TravisPracticeArduinoLib {
  public:
   TravisPracticeArduinoLib();
-#if defined(UART)
+#if defined(ARDUINO_SAM_DUE)
+  void printHello(UARTClass *serial);
+#elif defined(UART)
   void printHello(Uart *serial);
-#else
-  void printHello(HardwareSerial *serial);
 #endif
+  void printHello(HardwareSerial *serial);
 
 #ifdef USBCON
   void printHello(Serial_ *serial);

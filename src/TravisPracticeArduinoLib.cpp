@@ -3,15 +3,18 @@
 TravisPracticeArduinoLib::TravisPracticeArduinoLib() {
 }
 
-#if defined(UART)
+#if defined(ARDUINO_SAM_DUE)
+void TravisPracticeArduinoLib::printHello(UARTClass *serial) {
+  serial->print("hello");
+}
+#elif defined(UART)
 void TravisPracticeArduinoLib::printHello(Uart *serial) {
   serial->print("hello");
 }
-#else
+#endif
 void TravisPracticeArduinoLib::printHello(HardwareSerial *serial) {
   serial->print("hello");
 }
-#endif
 
 #ifdef USBCON
 void TravisPracticeArduinoLib::printHello(Serial_ *serial) {
