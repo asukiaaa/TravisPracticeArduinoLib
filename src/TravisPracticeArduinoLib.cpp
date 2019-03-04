@@ -3,7 +3,7 @@
 TravisPracticeArduinoLib::TravisPracticeArduinoLib() {
 }
 
-#if defined(TRAVIS_PRACTICE_UART_USED)
+#if defined(UART)
 void TravisPracticeArduinoLib::printHello(Uart *serial) {
   serial->print("hello");
 }

@@ -3,7 +3,7 @@
 TravisPracticeArduinoLib practice;
 
 void setup() {
-#if defined(TRAVIS_PRACTICE_SAMD_BOARD) && !defined(TRAVIS_PRACTICE_ADAVRUIT_SAMD)
+#if defined(__arm__) && !defined(__adafruit__)
   SerialUSB.begin(115200);
 #else
   Serial.begin(115200);
@@ -11,7 +11,7 @@ void setup() {
 }
 
 void loop() {
-#if defined(TRAVIS_PRACTICE_SAMD_BOARD) && !defined(TRAVIS_PRACTICE_ADAVRUIT_SAMD)
+#if defined(__arm__) && !defined(__adafruit__)
   practice.printHello(&SerialUSB);
 #else
   practice.printHello(&Serial);
