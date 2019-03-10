@@ -1,10 +1,12 @@
 #ifndef __TRAVIS_PRACTICE_ARDUINO_LIB_H__
 #define __TRAVIS_PRACTICE_ARDUINO_LIB_H__
 
+#if defined(UART)
 #if defined(ARDUINO_SAM_DUE)
 #include <UARTClass.h>
-#elif defined(UART)
+#else
 #include <Uart.h>
+#endif
 #endif
 
 #include <HardwareSerial.h>
