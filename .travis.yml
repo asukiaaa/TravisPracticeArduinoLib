@@ -44,7 +44,10 @@ script:
   - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassArduinoZero/PassArduinoZero.ino
 # PassAdafruitM4
   - TARGET_EXAMPLE=PassAdafruitM4
-  - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/$TARGET_EXAMPLE/$TARGET_EXAMPLE.ino
+  - arduino --verify --board adafruit:samd:adafruit_metro_m4 $PWD/examples/$TARGET_EXAMPLE/$TARGET_EXAMPLE.ino
+# PassESP32
+  - TARGET_EXAMPLE=PassESP32
+  - arduino --verify --board esp32:esp32:featheresp32:FlashFreq=80 $PWD/examples/$TARGET_EXAMPLE/$TARGET_EXAMPLE.ino
 
 notifications:
   email:
