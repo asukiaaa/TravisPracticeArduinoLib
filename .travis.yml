@@ -28,8 +28,18 @@ before_install:
    - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
 
 script:
-#  - arduino --verify --board arduino:avr:uno $PWD/examples/Hello/Hello.ino
-  - build_main_platforms
+#  - build_main_platforms
+# Hello
+  - arduino --verify --board arduino:avr:leonardo $PWD/examples/Hello/Hello.ino
+  - arduino --verify --board arduino:samd:zero $PWD/examples/Hello/Hello.ino
+  - arduino --verify --board adafruit:samd:adafruit_metro_m4 $PWD/examples/Hello/Hello.ino
+  - arduino --verify --board esp32:esp32:featheresp32:FlashFreq=80 $PWD/examples/Hello/Hello.ino
+  - arduino --verify --board esp8266:esp8266:huzzah:eesz=4M3M,xtal=80 $PWD/examples/Hello/Hello.ino
+  - arduino --verify --board arduino:avr:mega:cpu=atmega2560 $PWD/examples/Hello/Hello.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/Hello/Hello.ino
+  - arduino --verify --board arduino:sam:arduino_due_x $PWD/examples/Hello/Hello.ino
+# PassUno
+  - arduino --verify --board arduino:avr:uno $PWD/examples/PassUno/PassUno.ino
 
 notifications:
   email:
