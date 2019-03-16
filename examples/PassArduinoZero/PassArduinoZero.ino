@@ -1,4 +1,5 @@
 #include <USB/USBAPI.h>
+#include <HardwareSerial.h>
 
 void mainHello(Serial_ *serial) {
   serial->println("hello");

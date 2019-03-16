@@ -41,7 +41,10 @@ script:
 # PassUno
   - arduino --verify --board arduino:avr:uno $PWD/examples/PassUno/PassUno.ino
 # PassArduinoZero
-  - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassUno/PassUno.ino
+  - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassArduinoZero/PassArduinoZero.ino
+# PassAdafruitM4
+  - TARGET_EXAMPLE=PassAdafruitM4
+  - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/$TARGET_EXAMPLE/$TARGET_EXAMPLE.ino
 
 notifications:
   email:
