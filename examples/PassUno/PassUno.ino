@@ -3,11 +3,11 @@
 
 SoftwareSerial softSerial(8, 9);
 
-void mainHello(HardwareSerial &serial) {
+void mainHello(HardwareSerial *serial) {
   serial->println("hello");
 }
 
-void softHello(SoftwareSerial &serial) {
+void softHello(SoftwareSerial *serial) {
   serial->println("hello");
 }
 
