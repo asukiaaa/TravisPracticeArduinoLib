@@ -52,6 +52,8 @@ script:
   - arduino --verify --board arduino:avr:mega:cpu=atmega2560 $PWD/examples/PassMega/PassMega.ino
 # PassUno
   - arduino --verify --board arduino:avr:uno $PWD/examples/PassUno/PassUno.ino
+# PassDue
+  - arduino --verify --board arduino:sam:arduino_due_x $PWD/examples/PassDue/PassDue.ino
 
 notifications:
   email:
