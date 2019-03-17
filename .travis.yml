@@ -38,8 +38,8 @@ script:
   - arduino --verify --board arduino:avr:mega:cpu=atmega2560 $PWD/examples/Hello/Hello.ino
   - arduino --verify --board arduino:avr:uno $PWD/examples/Hello/Hello.ino
   - arduino --verify --board arduino:sam:arduino_due_x $PWD/examples/Hello/Hello.ino
-# PassUno
-  - arduino --verify --board arduino:avr:uno $PWD/examples/PassUno/PassUno.ino
+# PassLeonardo
+  - arduino --verify --board arduino:avr:leonardo $PWD/examples/PassLeonardo/PassLeonardo.ino
 # PassArduinoZero
   - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassArduinoZero/PassArduinoZero.ino
 # PassAdafruitM4
@@ -50,6 +50,8 @@ script:
   - arduino --verify --board esp8266:esp8266:huzzah:eesz=4M3M,xtal=80 $PWD/examples/PassESP8266/PassESP8266.ino
 # PassMega
   - arduino --verify --board arduino:avr:mega:cpu=atmega2560 $PWD/examples/PassMega/PassMega.ino
+# PassUno
+  - arduino --verify --board arduino:avr:uno $PWD/examples/PassUno/PassUno.ino
 
 notifications:
   email:

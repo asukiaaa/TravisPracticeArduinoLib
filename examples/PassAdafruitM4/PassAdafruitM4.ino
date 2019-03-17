@@ -2,15 +2,15 @@
 #include <HardwareSerial.h>
 #include <Uart.h>
 
-void mainHello(Serial_ *serial) {
+void usbHello(Serial_ *serial) {
   serial->println("hello");
 }
 
-void subHello(HardwareSerial *serial) {
+void hardHello(HardwareSerial *serial) {
   serial->println("hello");
 }
 
-void subUartHello(Uart *serial) {
+void uartHello(Uart *serial) {
   serial->println("hello");
 }
 
@@ -24,7 +24,7 @@ void setup() {
 }
 
 void loop() {
-  mainHello(&Serial);
-  subHello(&Serial1);
-  subUartHello(&Serial2);
+  usbHello(&Serial);
+  hardHello(&Serial1);
+  uartHello(&Serial2);
 }

@@ -3,7 +3,7 @@
 
 SoftwareSerial softSerial(8, 9);
 
-void mainHello(HardwareSerial *serial) {
+void hardHello(HardwareSerial *serial) {
   serial->println("hello");
 }
 
@@ -17,6 +17,6 @@ void setup() {
 }
 
 void loop() {
-  mainHello(&Serial);
+  hardHello(&Serial);
   softHello(&softSerial);
 }

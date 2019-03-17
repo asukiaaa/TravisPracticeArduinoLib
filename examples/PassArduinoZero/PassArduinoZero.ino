@@ -1,11 +1,11 @@
 #include <USB/USBAPI.h>
 #include <HardwareSerial.h>
 
-void mainHello(Serial_ *serial) {
+void usbHello(Serial_ *serial) {
   serial->println("hello");
 }
 
-void subHello(HardwareSerial *serial) {
+void hardHello(HardwareSerial *serial) {
   serial->println("hello");
 }
 
@@ -16,7 +16,7 @@ void setup() {
 }
 
 void loop() {
-  mainHello(&SerialUSB);
-  subHello(&Serial);
-  subHello(&Serial1);
+  usbHello(&SerialUSB);
+  hardHello(&Serial);
+  hardHello(&Serial1);
 }

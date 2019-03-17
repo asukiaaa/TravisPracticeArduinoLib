@@ -1,10 +1,6 @@
 #include <HardwareSerial.h>
 
-void mainHello(HardwareSerial *serial) {
-  serial->println("hello");
-}
-
-void subHello(HardwareSerial *serial) {
+void hardHello(HardwareSerial *serial) {
   serial->println("hello");
 }
 
@@ -15,8 +11,8 @@ void setup() {
 }
 
 void loop() {
-  mainHello(&Serial);
-  subHello(&Serial1);
-  subHello(&Serial2);
+  hardHello(&Serial);
+  hardHello(&Serial1);
+  hardHello(&Serial2);
 }
 
