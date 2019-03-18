@@ -42,6 +42,8 @@ script:
   - arduino --verify --board arduino:avr:leonardo $PWD/examples/PassLeonardo/PassLeonardo.ino
 # PassArduinoZero
   - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassArduinoZero/PassArduinoZero.ino
+# PassAdafruitM0
+  - arduino --verify --board adafruit:samd:adafruit_feather_m0 $PWD/examples/PassAdafruitM0/PassAdafruitM0.ino
 # PassAdafruitM4
   - arduino --verify --board adafruit:samd:adafruit_metro_m4 $PWD/examples/PassAdafruitM4/PassAdafruitM4.ino
 # PassESP32
