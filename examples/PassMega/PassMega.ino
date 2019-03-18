@@ -1,7 +1,7 @@
 #include <HardwareSerial.h>
 #include <SoftwareSerial.h>
 
-SoftwareSerial softSerial(8, 9);
+SoftwareSerial softSerial(10, 11);
 
 void hardHello(HardwareSerial *serial) {
   serial->println("hello");
