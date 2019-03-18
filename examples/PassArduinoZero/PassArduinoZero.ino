@@ -1,5 +1,5 @@
-#include <USB/USBAPI.h>
 #include <HardwareSerial.h>
+#include <USB/USBAPI.h>
 
 void usbHello(Serial_ *serial) {
   serial->println("hello");

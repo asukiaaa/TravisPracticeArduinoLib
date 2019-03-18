@@ -1,6 +1,6 @@
-#include <USB/USBAPI.h>
 #include <HardwareSerial.h>
 #include <Uart.h>
+#include <USB/USBAPI.h>
 
 void usbHello(Serial_ *serial) {
   serial->println("hello");
@@ -18,9 +18,9 @@ void uartHello(Uart *serial) {
 Uart Serial2(&sercom1, 11, 10, SERCOM_RX_PAD_0, UART_TX_PAD_2);
 
 void setup() {
-  Serial.begin(115200); // native port
-  Serial1.begin(115200); // programming port
-  Serial2.begin(115200); // 0: RX, 1: TX
+  Serial.begin(115200);
+  Serial1.begin(115200);
+  Serial2.begin(115200);
 }
 
 void loop() {
