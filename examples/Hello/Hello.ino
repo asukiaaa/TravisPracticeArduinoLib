@@ -13,9 +13,10 @@ void setup() {
 void loop() {
 #if defined(SerialUSB)
   practice.printHello(&SerialUSB);
+  SerialUSB.println(" at " + String(millis()));
 #else
   practice.printHello(&Serial);
-#endif
   Serial.println(" at " + String(millis()));
+#endif
   delay(1000);
 }
