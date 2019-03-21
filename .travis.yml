@@ -56,6 +56,16 @@ script:
   - arduino --verify --board arduino:avr:uno $PWD/examples/PassUno/PassUno.ino
 # PassDue
   - arduino --verify --board arduino:sam:arduino_due_x $PWD/examples/PassDue/PassDue.ino
+# PassAll
+  - arduino --verify --board arduino:avr:leonardo $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board adafruit:samd:adafruit_feather_m0 $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board adafruit:samd:adafruit_metro_m4 $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board esp32:esp32:featheresp32:FlashFreq=80 $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board esp8266:esp8266:huzzah:eesz=4M3M,xtal=80 $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board arduino:avr:mega:cpu=atmega2560 $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board arduino:avr:uno $PWD/examples/PassAll/PassAll.ino
+  - arduino --verify --board arduino:sam:arduino_due_x $PWD/examples/PassAll/PassAll.ino
 
 notifications:
   email:
