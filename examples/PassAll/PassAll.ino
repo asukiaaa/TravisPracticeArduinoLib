@@ -32,7 +32,7 @@ void uartClassHello(Uart *serial) {
   serial->println("hello");
 }
 
-#if ADAFRUIT_M4
+#if ADAFRUIT_METRO_M4_EXPRESS
   Uart uartSerial(&sercom1, 11, 10, SERCOM_RX_PAD_0, UART_TX_PAD_2);
 #endif
 #endif
@@ -64,7 +64,7 @@ void setup() {
 #endif
 #endif
 
-#if ADAFRUIT_M4
+#if ADAFRUIT_METRO_M4_EXPRESS
   uartSerial.begin(115200);
 #endif
 }
@@ -100,7 +100,7 @@ void loop() {
 #endif
 #endif
 
-#if ADAFRUIT_M4
+#if ADAFRUIT_METRO_M4_EXPRESS
   uartHello(&uartSerial);
 #endif
 }
