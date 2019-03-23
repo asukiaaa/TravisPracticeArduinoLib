@@ -35,31 +35,40 @@ void usbHello(Serial_ *serial) {
 }
 #endif
 
+// define flag to detect using SerialUSB
+#if defined(__arm__) && !defined(ADAFRUIT_FEATHER_M0) && !defined(ADAFRUIT_METRO_M4_EXPRESS)
+// adafruit boards don't use SerialUSB
+#define USING_SERIAL_USB
+#endif
+
 void setup() {
-  Serial.begin(115200);
+#ifdef USING_SERIAL_USB
+  usbHello(&SerialUSB);
+#endif
 
 #if !defined(__arm__) && !defined(ESP32)
   softSerial.begin(115200);
 #endif
 
-#if defined(ARDUINO_MEGA) || defined(ARDUINO_DUE) || defined(ESP32)
+  Serial.begin(115200);
+
+#if defined(USBCON) && !defined(USING_SERIAL_USB)
+  Serial1.begin(115200);
+#endif
+#ifdef ESP32
   Serial1.begin(115200);
   Serial2.begin(115200);
-#ifndef ESP32
-  Serial3.begin(115200);
 #endif
+#if defined(ARDUINO_MEGA) || defined(ARDUINO_DUE)
+  Serial1.begin(115200);
+  Serial2.begin(115200);
+  Serial3.begin(115200);
 #endif
 
 #if ADAFRUIT_METRO_M4_EXPRESS
   uartSerial.begin(115200);
 #endif
 }
-
-// define flag to detect using SerialUSB
-#if defined(__arm__) && !defined(ADAFRUIT_FEATHER_M0) && !defined(ADAFRUIT_METRO_M4_EXPRESS)
-// adafruit boards don't use SerialUSB
-#define USING_SERIAL_USB
-#endif
 
 void loop() {
 #ifdef USING_SERIAL_USB
@@ -79,12 +88,14 @@ void loop() {
 #if defined(USBCON) && !defined(USING_SERIAL_USB)
   hardHello(&Serial1);
 #endif
-#if defined(ARDUINO_MEGA) || defined(ARDUINO_DUE) || defined(ESP32)
+#ifdef ESP32
   hardHello(&Serial1);
   hardHello(&Serial2);
-#ifndef ESP32
-  hardHello(&Serial3);
 #endif
+#if defined(ARDUINO_MEGA) || defined(ARDUINO_DUE)
+  hardHello(&Serial1);
+  hardHello(&Serial2);
+  hardHello(&Serial3);
 #endif
 
 #if ADAFRUIT_METRO_M4_EXPRESS
