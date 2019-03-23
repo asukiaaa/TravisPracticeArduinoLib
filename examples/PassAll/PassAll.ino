@@ -92,6 +92,9 @@ void loop() {
   softHello(&softSerial);
 #endif
 
+#if defined(USBCON) && !defined(USING_SERIAL_USB)
+  hardHello(&Serial1);
+#endif
 #if defined(ARDUINO_MEGA) || defined(ARDUINO_DUE) || defined(ESP32)
   hardHello(&Serial1);
   hardHello(&Serial2);
