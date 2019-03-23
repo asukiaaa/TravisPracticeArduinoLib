@@ -42,12 +42,12 @@ void usbHello(Serial_ *serial) {
 #endif
 
 void setup() {
-#ifdef USING_SERIAL_USB
-  usbHello(&SerialUSB);
-#endif
-
 #if !defined(__arm__) && !defined(ESP32)
   softSerial.begin(115200);
+#endif
+
+#ifdef USING_SERIAL_USB
+  usbHello(&SerialUSB);
 #endif
 
   Serial.begin(115200);
@@ -71,6 +71,10 @@ void setup() {
 }
 
 void loop() {
+#if !defined(__arm__) && !defined(ESP32)
+  softHello(&softSerial);
+#endif
+
 #ifdef USING_SERIAL_USB
   usbHello(&SerialUSB);
 #endif
@@ -79,10 +83,6 @@ void loop() {
   usbHello(&Serial);
 #else
   hardHello(&Serial);
-#endif
-
-#if !defined(__arm__) && !defined(ESP32)
-  softHello(&softSerial);
 #endif
 
 #if defined(USBCON) && !defined(USING_SERIAL_USB)
