@@ -28,7 +28,7 @@ void uartClassHello(UARTClass *serial) {
 #elif defined(__arm__)
 #include <Uart.h>
 
-void uartClassHello(Uart *serial) {
+void uartHello(Uart *serial) {
   serial->println("hello");
 }
 
