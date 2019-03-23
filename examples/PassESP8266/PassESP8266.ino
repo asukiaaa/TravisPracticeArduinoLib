@@ -19,4 +19,5 @@ void setup() {
 void loop() {
   hardHello(&Serial);
   softHello(&softSerial);
+  delay(1000);
 }

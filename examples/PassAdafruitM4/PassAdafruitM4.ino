@@ -23,4 +23,5 @@ void loop() {
   usbHello(&Serial);
   hardHello(&Serial1);
   hardHello(&uartSerial);
+  delay(1000);
 }

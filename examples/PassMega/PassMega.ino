@@ -25,4 +25,5 @@ void loop() {
   hardHello(&Serial2);
   hardHello(&Serial3);
   softHello(&softSerial);
+  delay(1000);
 }

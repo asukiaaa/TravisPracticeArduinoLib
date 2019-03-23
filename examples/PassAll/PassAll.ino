@@ -101,4 +101,5 @@ void loop() {
 #if ADAFRUIT_METRO_M4_EXPRESS
   hardHello(&uartSerial);
 #endif
+  delay(1000);
 }

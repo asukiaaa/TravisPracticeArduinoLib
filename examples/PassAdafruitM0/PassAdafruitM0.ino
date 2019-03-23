@@ -17,4 +17,5 @@ void setup() {
 void loop() {
   usbHello(&Serial);
   hardHello(&Serial1);
+  delay(1000);
 }

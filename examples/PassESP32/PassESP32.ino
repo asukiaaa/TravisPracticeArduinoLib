@@ -14,5 +14,5 @@ void loop() {
   hardHello(&Serial);
   hardHello(&Serial1);
   hardHello(&Serial2);
+  delay(1000);
 }
-
