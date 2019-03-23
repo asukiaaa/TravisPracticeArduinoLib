@@ -10,10 +10,6 @@ void hardHello(HardwareSerial *serial) {
   serial->println("hello");
 }
 
-void uartHello(Uart *serial) {
-  serial->println("hello");
-}
-
 // https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports/creating-a-new-serial
 Uart uartSerial(&sercom1, 11, 10, SERCOM_RX_PAD_0, UART_TX_PAD_2);
 
@@ -26,5 +22,5 @@ void setup() {
 void loop() {
   usbHello(&Serial);
   hardHello(&Serial1);
-  uartHello(&uartSerial);
+  hardHello(&uartSerial);
 }

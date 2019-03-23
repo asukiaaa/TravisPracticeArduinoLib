@@ -19,22 +19,8 @@ void hardHello(HardwareSerial *serial) {
   serial->println("hello");
 }
 
-#ifdef ARDUINO_SAM_DUE
-#include <UARTClass.h>
-
-void uartClassHello(UARTClass *serial) {
-  serial->println("hello");
-}
-#elif defined(__arm__)
-#include <Uart.h>
-
-void uartHello(Uart *serial) {
-  serial->println("hello");
-}
-
 #if ADAFRUIT_METRO_M4_EXPRESS
   Uart uartSerial(&sercom1, 11, 10, SERCOM_RX_PAD_0, UART_TX_PAD_2);
-#endif
 #endif
 
 #ifdef USBCON
@@ -80,9 +66,7 @@ void loop() {
   usbHello(&SerialUSB);
 #endif
 
-#ifdef ARDUINO_SAM_DUE
-  uartClassHello(&Serial);
-#elif defined(USBCON) && !defined(USING_SERIAL_USB)
+#if defined(USBCON) && !defined(USING_SERIAL_USB)
   usbHello(&Serial);
 #else
   hardHello(&Serial);
@@ -104,6 +88,6 @@ void loop() {
 #endif
 
 #if ADAFRUIT_METRO_M4_EXPRESS
-  uartHello(&uartSerial);
+  hardHello(&uartSerial);
 #endif
 }

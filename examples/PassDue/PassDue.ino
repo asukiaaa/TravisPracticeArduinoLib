@@ -1,12 +1,7 @@
 #include <HardwareSerial.h>
-#include <UARTClass.h>
 #include <USB/USBAPI.h>
 
 void usbHello(Serial_ *serial) {
-  serial->println("hello");
-}
-
-void uartClassHello(UARTClass *serial) {
   serial->println("hello");
 }
 
@@ -24,7 +19,7 @@ void setup() {
 
 void loop() {
   usbHello(&SerialUSB);
-  uartClassHello(&Serial);
+  hardHello(&Serial);
   hardHello(&Serial1);
   hardHello(&Serial2);
   hardHello(&Serial3);
