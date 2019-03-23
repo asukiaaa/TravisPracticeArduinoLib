@@ -40,8 +40,8 @@ script:
   - arduino --verify --board arduino:sam:arduino_due_x $PWD/examples/Hello/Hello.ino
 # PassLeonardo
   - arduino --verify --board arduino:avr:leonardo $PWD/examples/PassLeonardo/PassLeonardo.ino
-# PassArduinoZero
-  - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassArduinoZero/PassArduinoZero.ino
+# PassZero
+  - arduino --verify --board arduino:samd:arduino_zero_native $PWD/examples/PassZero/PassZero.ino
 # PassAdafruitM0
   - arduino --verify --board adafruit:samd:adafruit_feather_m0 $PWD/examples/PassAdafruitM0/PassAdafruitM0.ino
 # PassAdafruitM4
